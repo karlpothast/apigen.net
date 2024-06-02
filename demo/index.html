@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APIgen Demo</title>
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    <link rel="stylesheet" href="/css/index.css"/> 
+    <link rel="stylesheet" href="/css/styles.css"/>
+    <link rel="stylesheet" href="/css/sql.css"/>
+    <link rel="stylesheet" href="/css/apigen.css"/>
+    <link rel="stylesheet" href="/css/cmd.css"/>
+   <!-- <link rel="stylesheet" href="/css/view.css"/>-->
+    <link rel="stylesheet" href="/css/menu.css"/> 
+    <link rel="stylesheet" href="/css/info.css"/>
+    <link rel="stylesheet" href="/css/stars.css"/>
+    <link rel="stylesheet" href="/css/navmenu.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Roboto+Flex:opsz,wght@8..144,500&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+</head>  
+<body>
+<div style="position:absolute;top:5vh;left:7vw;z-index:50" id="divVideo">
+ <div style="border:#36454F solid 1px;background-color:black;box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);">
+  <table style="width:100%">
+    <tr>
+      <td align="left"><spa style=color:whitesmoke;font-size:1.5rem">APIgen Demo</span></td>
+      <td align="right">
+         <button id="btnCloseVideo" style="font-size:1.5rem">&nbsp;X&nbsp;</button>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-top:solid #36454F 1px !important;" colspan=2>
+<iframe width="1200" height="640" src="https://www.youtube.com/embed/FtTzgwXNxZk" margin-top:0.5vh frameborder="0" allowfullscreen></iframe>
+      </td>
+    </tr>
+  </table>
+ </div>
+</div>
+<script>
+const btnCloseVideo = document.getElementById("btnCloseVideo");
+const divVideo = document.getElementById("divVideo");
+btnCloseVideo.addEventListener("click",close,false);
+
+function close() {
+ divVideo.style.display="none";
+  setTimeout(() => {$('#divDim').animate({opacity: 0},{duration:700})}, 1);
+  setTimeout(() => {$('#divDim').css({visibility: "hidden"})}, 700);
+  setTimeout(() => {$('#app').removeClass("blurred"); }, 0);
+
+};
+
+
+
+</script>
+
+<div id="app">
+  <div class="headerBar">
+    <table class="tblLogoTitle"> 
+      <tr>
+        <td id="tdLogo">
+          <div id="divGlow" class="divGlow"></div>
+          <img src="/assets/images/lightning0.png" class="lightning0" id="lightning0">
+          <img src="/assets/images/lightning1.png" class="lightning1" id="lightning1">
+          <img src="/assets/images/lightning2.png" class="lightning2" id="lightning2">
+          <img class="imgLogoMenu" id="imgLogoMenu" src="/assets/images/apigendark.png"/>
+        </td>
+        <td id="tdTitle" width="15%">
+          <span id="titleText" class="titleText">APIGen</span>
+	</td>
+        <td width="40%" align="left">
+	  <a href="/demo/contact.html" style="color:cyan">Contact for more information</a>
+        </td>
+        <td id="tdNetLogo" align="right">
+          <img src="/assets/images/dotnet.png" class="netLogo"/>
+        </td>
+        <td id="tdHeaderRight" nowrap>
+            <span class="headerText">.NET API Generator</span>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="nav-container" tabindex="0">
+    <div class="nav-toggle" id="navToggle"></div>
+      <div id="navMenu">
+        <div id="menuContent" class="menuContent"s>
+          <label role="tab" aria-selected="true" aria-controls="panel1" tabindex="0"></label>
+          <div id="tab0" class="tab-content">
+            <div id="menuTabs">
+              <span style="text-decoration:underline;font-weight:bold">Documentation</span><br/>
+              <a href="/docs/instructions.html" target="_blank">Instructions</a>
+              <br/>
+              <br/>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="cont s--inactive">
+    <div class="cont__inner" id="divInner">
+      <div class="el" id="divSQL">
+        <div class="el__overflow">
+          <div class="el__inner">
+            <div id="sqlWindowBackground" class="el__bg"></div>
+            <div class="el__preview-cont" id="sqlPreviewTab">
+              <span class="el__heading shadow shadow1" id="sqlTabTitle">SQL Server <br> Connection </span>
+            </div>
+            <div class="el__content">
+              <div class="el__text"></div>
+              <div id="sqlApp">   
+                <div id="winBg" class="winBg">        
+                  <div id="sqlDiv">
+                    <div id="divHeader">
+                      <img src="/assets/images/logo.png">
+                      <span class="spanHeaderText">SQL Mgmt Web</span>
+                    </div>
+                    <div class="div-table">
+                      <div class="div-table-row sqlHeaderRow">
+                        <div class="div-table-col objectsColumn columnHeader">
+                          <table id="tableMenu" width="98%">
+                            <tr>
+                              <td width="5%">
+                                <button id="btnMenu" class="btnMenu" onclick="showMenu()">☰&nbsp;</button>
+                              </td>
+                              <td>
+                              <span>SQL Server 2022</span>
+                              </td>
+                            </tr>
+                          </table>
+                          <div id="divMenu">
+                            <table style="width:100%">
+                              <tr class="tr-menu" id="trMenu">
+                                <td class="td-gutter">
+                                  <span></span>
+                                </td>
+                                <td class="td-main" id="tdNewDB" onclick="newDatabasePopup()">
+                                  <span>New Database..</span>
+                                </td>
+                              </tr>
+                              <tr class="tr-menu">
+                                <td class="td-gutter">
+                                  <span></span>
+                                </td>
+                                <td class="td-main" id="tdNewTable" onclick="newTablePopup()">
+                                  <span>New Table..</span>
+                                </td>
+                              </tr>
+                              <tr class="tr-menu">
+                                <td class="td-gutter">
+                                  <span></span>
+                                </td>
+                                <td class="td-main" id="tdDropDB" onclick="dropDBPopup()">
+                                  <span>Drop Database..</span>
+                                </td>
+                              </tr>
+                              <tr class="tr-menu">
+                                <td class="td-gutter">
+                                  <span></span>
+                                </td>
+                                <td class="td-main" id="tdDropTable" onclick="dropTablePopup()">
+                                  <span>Drop Table..</span>
+                                </td>
+                              </tr>
+                            </table>
+                          </div>
+                        </div>
+                        <div class="div-table-col queryColumn columnHeader">
+                          <table width=100% height="100%" id="tableQueryHeader">
+                            <tr>
+                              <td>
+                                <span class="sqlQueryText">
+                                SQL Query&nbsp;&nbsp;
+                                </span>
+                                <button id="sqlButton" class="sqlButton" disabled>
+                                  <span class="sqlButtonText1">▷</span>&nbsp;<span>         
+                                  <span class="sqlButtonText2"> Execute</span>&nbsp;</span>
+                                </button>
+                                &nbsp;&nbsp;&nbsp;
+                                <label for="selectDatabase">Database:</label>
+                                <select name="selectDatabase" id="selectDatabase" class="styled-1" style="height:25px">
+                                </select>   
+                              </td>
+                              <td>
+                              </td>
+                              <td align="right">
+                                <button class="btnConnString" id="btnConnString" onclick="getConnString(selectDatabase.value)">
+                                  <span class="btnConnString1"><img src="/assets/images/connString2.png"/></span>
+                                  <span class="btnConnString2">Copy SQL Connection String</span>
+                                </button> 
+                              </td>
+                            </tr>
+                          </table>
+                        </div>
+                      </div>
+                      <div class="div-table-row">
+                        <div class="div-table-col objectsColumn" id="divObjects1">
+                          <div id="sqlObjectsHeader"><span id="spanSQLObjects">SQL Objects</span></div>
+                          <div id="divServerInfo"></div>
+                          <div id="divObjects"></div>
+                        </div>
+                        <div class="div-table-col queryColumn" id="divQuery1">
+                          <div id="containerV" ondragover="allowDrop(event)" ondrop="dropV(event)"> 
+                            <div id="topDiv">
+                              <textarea class="queryWindow" id="queryWindow"></textarea>
+                            </div>
+                            <div id="dividerV" draggable="true" ondragstart="drag(event)">
+                            </div>
+                            <div id="bottomDiv">
+                              <div id="tabs">
+                                <div class="tab whiteborder">Results</div>
+                                <div class="tab">JSON</div>
+                                <div class="tabContent show" id="sqlResultsDiv">
+                                  <div id="tableDiv" class="divTable"></div>
+                                </div>
+                                <div class="tabContent" id="jsonResultsDiv">
+                                  <div id="jsonDiv" class="jsonDiv"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="divFooter">
+                    </div>
+                  </div>
+                  <div id="divSubMenuItem">
+                    <div id="divAddDB" class="itemContainer">
+                      <span class="itemTitle">Create New Database</span>
+                      <table style="margin-top:20px;height: 125px;">
+                        <tr>
+                          <td>
+                            Database Name : 
+                          </td>
+                          <td>&nbsp;</td>
+                          <td>
+                            <input type="text" maxlength="25" id="txtNewDB" style="width: 200px;" />
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan="3" align="center">
+                            <button onclick="createDB(txtNewDB.value)" disabled style="width:130px; height:35px;font-weight:bold">Create Database</button>
+                          </td>
+                        </tr>
+                      </table>
+                      <label id="lblMsg"></label>
+                    </div>
+                  </div>
+                  <div id="divSubMenuItem2">
+                    <div id="divAddTable" class="itemContainer2">
+                      <table width="100%">
+                        <tr id="trAddTableHeader">
+                          <td width=30% class="tdAddTableHeader"><span class="itemTitle">Add Table</span></td>
+                          <td class="tdAddTableHeader">
+                            <label for="selectDatabasePopup">Database:</label>
+                            <select name="selectDatabasePopup" id="selectDatabasePopup">
+                            </select>
+                          </td>
+                          <td width="35%">
+                          </td>
+                        </tr>
+                      </table>
+                      <table class="tableAddTable"  width="100%">
+                        <tr>
+                          <td width=30%>
+                            Table Name :
+                          </td>
+                          <td>
+                            <input type="text" maxlength="25" id="txtNewTable" oninput="onTableNameInput(this)" tabindex=200 /></input>
+                          </td>
+                          <td>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan="3" style="height: 20px;"> 
+                            <hr/>
+                          </td>
+                        </tr>
+                        <tr style="height: 25px;">
+                          <td>
+                            Column Name :
+                          </td>
+                          <td>
+                            <input type="text" maxlength="25" id="txtClmName" tabindex=205 />
+                          </td>
+                          <td rowspan="3" valign="top" colspan="2" align="right" width=20%>
+                            <button onclick="addColumn()" class="btn" tabindex=235>Add Column</button>
+                          </td>
+                          <td>&nbsp;&nbsp;&nbsp;</td>
+                        </tr>
+                        <tr style="height: 25px;">
+                          <td><label for="sqlType">Type</label></td>
+                          <td>        
+                            <select name="sqlType" id="sqlType" onchange="clmDefaults()" tabindex=210 >
+                              <option value=""></option>
+                              <option value="uniqueidentifier">uniqueidentifier</option>
+                              <option value="int">int</option>
+                              <option value="varchar">varchar</option>
+                              <option value="datetime">datetime</option>
+                              <option value="decimal">decimal</option>
+                              <option value="bit">boolean</option>
+                            </select>
+                          </td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr style="height: 25px;">
+                          <td>
+                            <span>Length :</span>
+                          </td>
+                          <td>
+                            <input type="number" id="txtClmLength" min=0 max=8000 style="width:50px" oninput="onTxtClmLengthInput(this)" tabindex=215></input>
+                          </td>
+                          <td></td>
+                        </tr>
+                        <tr style="height: 25px;">
+                          <td colspan="3">
+                            <span>Primary Key :</span>
+                            <input type="checkbox" id="cbPrimaryKey" tabindex=220></input>
+                            &nbsp;&nbsp;
+                            <span>Identity :</span>
+                            <input type="checkbox" id="cbIdentity" tabindex=225></input>
+                            &nbsp;&nbsp;
+                            <span>Nullable :</span>
+                            <input type="checkbox" id="cbNullable" tabindex=230></input>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan="3" style="height: 20px;">
+                            <hr/>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td width="100%" colspan=3>
+                            <table>
+                              <tr>
+                                <td width=100% height="250px" valign="top">
+                                  <span id="spanTableName" class="beforeEdit u">&lt;Table_Name&gt;</span>
+                                  <table id="addClmTable">
+                                    <tr class="columnDefs">
+                                      <td class="columnKeyTd">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                      </td>
+                                      <td class="columnNameTd">
+                                        Column Name
+                                      </td>
+                                      <td class="columnTypeTd">
+                                        Data Type
+                                      </td>
+                                      <td class="columnNullTd">
+                                        Allow Nulls
+                                      </td>
+                                      <td class="columnIdentityTd">
+                                        Identity
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                                <td valign="top"><button disabled onclick="addTable(selectDatabasePopup.value, false)" class="btn" tabindex=240>Add Table</button>
+                                  <br/><br/>
+                                  <button onclick="clearTable()" class="btn">Clear</button></td>
+                              </tr>
+              
+                            </table>
+                            <span id="spanScript"></span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan="3" align="center">
+                            
+                          </td>
+                        </tr>
+                      </table>
+                      <label id="lblMsg"></label>
+                    </div>
+                  </div>
+                  <div id="divSubMenuItem3">
+                    <div id="divDropDB" class="itemContainer">
+                      <span class="itemTitleDrop">Drop Database</span>
+                      <table style="margin-top:10px">
+                        <tr>
+                          <td>
+                            Database Name :
+                          </td>
+                          <td>
+                            <select name="selectDatabasePopupDropDB" id="selectDatabasePopupDropDB">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>&nbsp;</td>
+                        <tr>
+                        <tr>
+                          <td colspan="3" align="center">
+                            <button disabled onclick="dropDB(selectDatabasePopupDropDB.value)">Drop Database</button>
+                          </td>
+                        </tr>
+                      </table>
+                      <label id="lblMsgDropDB"></label>
+                    </div>
+                  </div>
+                  <div id="divSubMenuItem4">
+                    <div id="divDropTable" class="itemContainer">
+                      <span class="itemTitleDrop">Drop Table</span>
+                      <table style="margin-top:10px">
+                        <tr>
+                          <td>
+                            <label for="selectDatabasePopupDrop">Database:</label>
+                          </td>
+                          <td>
+                            <select name="selectDatabasePopupDrop" id="selectDatabasePopupDrop">
+                            </select>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            Table Name :
+                          </td>
+                          <td>
+                            <input type="text" maxlength="25" id="txtTable" />
+                          </td>
+              
+                        </tr>
+                        <tr>
+                          <td>&nbsp;</td>
+                        <tr>
+                        <tr>
+                          <td colspan="3" align="center">
+                            <button disabled onclick="dropTable(selectDatabasePopupDrop.value, txtTable.value)">Drop Table</button>
+                          </td>
+                        </tr>
+                      </table>
+                      <label id="lblMsgDropTable"></label>
+                    </div>
+                  </div>
+                  <div id="alert">
+                    <table width="100%" height="100%">
+                      <tr height="15%" style="background-color:#4d6083; color:white; font-family:'Sans-Serif', 'Serif'">
+                        <td>
+                            SQL Mgmt Web Message
+                        </td>
+                      </tr>
+                      <tr style="background-color:#f0f0f0; color:black; font-family:'Sans-Serif', 'Serif'">
+                        <td align="center" style="text-align: center;">
+                          <br>
+                          <table width="100%">
+                            <tr>
+                              <td width="10%"></td>
+                              <td align="right">
+                                <img src="/assets/images\sql.png" />
+                              </td>
+                              <td align="left">
+                                <div class="message"></div>
+                              </td> 
+                              <td width="10%">
+                              </td>
+                            </tr>             
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <button id="btnSQLAlertOK" class="ok">OK</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div id="alertError">
+                    <table width="100%" height="100%">
+                      <tr height="15%" style="background-color:#4d6083; color:white; font-family:'Sans-Serif', 'Serif'">
+                        <td>
+                            SQL Mgmt Web Message
+                        </td>
+                      </tr>
+                      <tr style="background-color:#f0f0f0; color:black; font-family:'Sans-Serif', 'Serif'">
+                        <td align="center" style="text-align: center;">
+                          <table width="100%">
+                            <tr>
+                              <td width="15%"></td>
+                              <td align="center">
+                                <img src="/assets/images/alert.png" class="alertImg" />
+                              </td>
+                              <td align="left">
+                                <div class="message"></div>
+                              </td> 
+                              <td width="20%">
+                              </td>
+                            </tr>             
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <button id="btnSQLAlertErrorOk" class="ok">OK</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="el__close-btn" id="sqlTabCloseBtn"></div>
+            </div>
+          </div>
+        </div>
+        <div class="el__index">
+          <div class="el__index-back"></div>
+          <div class="el__index-front"><div class="el__index-overlay" data-index="1">1</div></div>
+        </div>
+      </div>
+      <div class="el" id="divAPIGen">
+        <div class="el__overflow">
+          <div class="el__inner">
+            <div class="el__bg"></div>
+            <div class="el__preview-cont" id="execAPIGenPreviewTab">
+              <span class="el__heading shadow shadow2" id="execAPIGenTabTitle">Execute<br> APIGen</span>
+            </div>
+            <div class="el__content">
+              <div class="el__text"></div>
+                <div class="appDiv termDropArea">
+                      <label id="lblRowCount"></label>
+                      <div id="divContainer" class="divContainer">
+                        <div id="termHeader" class="termHeader">
+                          <table class="termHeaderTable">
+                            <tr>
+                              <td width="3%">
+                                <img class="termHeaderIcon" src="/assets/images/winterm.png">
+                              </td>
+                              <td valign="top">
+                                <label class="termHeaderText" id="termHeaderText">Command Prompt</label>
+                              </td>
+                              <td>
+                              </td>
+                              <td align="right" width="10%">
+                                <div>
+                                  <table class="windowsCmd">
+                                    <tr>
+                                      <td align="right" width="20%">
+                                        <span id="termMinimize">🗕</span>
+                                      </td>
+                                      <td align="right">
+                                        <span id="termMaximize">🗗</span>
+                                      </td>
+                                      <td align="right">
+                                        <span id="termExit">🗙</span>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </div>
+                              </td>
+                            </tr>
+                          </table>
+                        </div>
+                        <div id="termBackground">
+                        </div>
+                        <div id="terminalWindow" class="terminalWindow" spellcheck="false">
+                          <img id="termShimImg" src="/assets/images/shimblur.png"/>
+                        </div>
+                      </div>
+                
+                </div>         
+              <div class="el__close-btn" id="execAPIGenCloseBtn"></div>
+            </div>
+          </div>
+        </div>
+        <div class="el__index">
+          <div class="el__index-back">2</div>
+          <div class="el__index-front"><div class="el__index-overlay" data-index="2">2</div></div>
+        </div>
+      </div>
+      <div class="el" id="divView">
+        <div class="el__overflow">
+          <div class="el__inner">
+            <div class="el__bg"></div>
+            <div class="el__preview-cont" id="viewAPIPreviewTab">
+              <span class="el__heading shadow shadow3" id="viewAPIPreviewTabTitle">View <br> Generated API </span>
+            </div>
+            <div class="el__content">
+              <div class="el__text"></div>    
+              <div id="divViewAPI">
+
+                <div id="divViewAPIHeader" class="divViewAPIHeader";>    
+                  <div height="20px">
+                    <table>
+                      <tr>
+                        <td colspan="2">
+                        <label id="lblAPIName" class="apiViewTitleText"></label>
+                        </td>
+                        <td>    
+                        </td>
+                      </tr>
+                    </table> 
+                  </div>
+                </div>
+
+                <div id="divDownloadZip" class="divDownloadZip";>    
+                  <div height="35px">
+                    <table>
+                      <tr>
+                        <td colspan="2">
+                          <label class="previewText"></label>
+                        </td>
+                        <td>    
+                        </td>
+                      </tr>
+                      <tr>
+                        <td width="5%" align="right">
+                          <a id="downloadZipImg">
+                          <!--  <img src="/assets/images/zip.png" style="margin-left:1vw" />-->
+                         </a>
+                        </td>
+                        <td align="left" width="30%">
+                          <a id="aDownloadZip"></a>
+                        </td>
+                        <td width="65%">
+                        </td>
+                      </tr>
+                    </table> 
+                  </div>
+                </div>
+
+                <div id="previewDiv" class="previewDiv">
+                  <label class="previewText"></label>
+                 <!-- <div id="divIframe" class="wrap scaled-frame">
+                    <iframe class="wrap scaled-frame" src="" id="scaledIFrame" title="Generated API" >
+                    </iframe>
+                  </div>-->
+                </div>
+
+              </div>
+              <div class="el__close-btn" id="viewAPIPreviewCloseBtn"></div>
+            </div>
+          </div>
+        </div>
+        <div class="el__index">
+          <div class="el__index-back">3</div>
+          <div class="el__index-front"><div class="el__index-overlay" data-index="3">3</div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="absolutePositionedElements">
+  <section id="sideBarNav">
+    <button id="sideBarButton1" class="sideBarButton sideBarButton1 tooltip">
+      <label class="lblSideBarNum">1</label>
+      <span class="spantooltip">SQL Server Connection</span>
+    </button>
+    <button id="sideBarButton2" class="sideBarButton sideBarButton2 tooltip">
+      <label class="lblSideBarNum">2</label> 
+      <span class="spantooltip">Execute APIGen</span>
+    </button>
+    <button id="sideBarButton3" class="sideBarButton sideBarButton3 tooltip">
+      <label class="lblSideBarNum">3</label> 
+      <span class="spantooltip">View API</span>
+    </button>
+ </section>
+  <button id="btnInfoCircle">
+    <img src="/assets/images/whiteinfo.png" class="imgInfo">
+  </button>
+
+  <div id="divInfo" class="divInfo">
+    <div id="flipCard" class="flip-card">
+        <div id="flipInner2" class="flip-card-inner">
+          <div class="banner-card-back">
+          <table id="tableInfo">
+            <tr>
+              <td style="text-align:left" width="40%" id="tdInfo1">
+                <img src="/assets/images/sqlNight2.png" id="modalImg" class="modalImg" />
+              </td>
+              <td width="60%" id="tdInfo2">
+                <div id="textWrapper">
+                  <div id="sqlText" class="modalInfoText">
+                    <br/>
+                    <h1>Step 1 - Choose a SQL Datasource</h1>
+                    <p>APIGen works by analyzing SQL object data (tables, columns, keys, etc..) and mapping 
+                      this data to template files which are copied to an output directory.
+                      <br><br>
+                      You can provide a SQL schema file, a create database script or a connection string to allow APIGen to 
+                      analyze the data. 
+                      <br><br>
+                      To view a working example, choose one of the example databases from
+                      the SQL Mgmt Web app and click the <strong>Copy SQL Connection String</strong> button in the upper right hand 
+                      corner. 
+                      <br><br>
+                      With the connection string copied to your clipboard, proceed to 
+                      <strong><button id="btnStep2" class="btnSpan"><span class="step"> Step 2 - Execute APIgen</span></button></strong>.
+                    </p>
+                    <button id="btnCloseInfoWindow" class="closeBtn">X</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
+          </div>
+          <div class="banner-card-front">
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="divNewApiInfo" id="divNewApiInfo">
+    <div class="flip-card-api" id="flipCardAPI">
+        <div id="flipInner2API" class="flip-card-api-inner">
+          <div class="banner-card-back">
+            <table id="tableNewApiInfo">
+              <tr>
+                <td style="text-align:left" width="50%" id="tdApiInfo1">
+                  <img src="/assets/images/apicard.png" class="modalImg" id="modalImg2" />
+                </td>
+                <td width="50%" id="tdApiInfo2">
+                  <div id="textWrapperAPI">
+                    <div id="apiInfoText" class="modalNewAPIText">
+                      <h1>Create New API</h1> 
+                      <br/>
+                      <p>To create a new API, click the <strong>Archive API</strong> button to save the current API and clear the working directory.
+                        <br>
+                      </p>
+                      <br/>
+                      <label id="lblAPICleared"></label>
+                      <button id="btnClearAPI" class="btnClearAPI">Archive API</button>
+                      <button id="btnCloseCreateAPIWindow" class="closeBtn">X</button>
+                      </p>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="banner-card-front">
+          </div>
+        </div>
+    </div>
+  </div> 
+
+
+  <!-- <div class="divStars" id="divStars">
+    <div class="star star1"></div>
+    <div class="bigstar star2"></div>
+    <div class="bigstar star3"></div>
+    <div class="biggerstar star4"></div>
+    <div class="star star5"></div>
+    <div class="faintstar star6"></div>
+    <div class="faintstar star7"></div>
+    <div class="bigerstar star8"></div>
+    <div class="star star9"></div>
+    <div class="star star10"></div>
+    <div class="star star11"></div>
+    <div class="star star12"></div>
+    <div class="star star13"></div>
+    <div class="star star14"></div>
+    <div class="star star15"></div>
+    <div class="star star16"></div>
+    <div class="star star17"></div>
+    <div class="star star18"></div>
+    <div class="star star19"></div>
+    <div class="star star20"></div>
+    <div class="shooting-star shooting-star1"></div>
+  </div> -->
+  <!-- <span class="asterisk pulse">✴</span> -->
+  <div id="divDim" class="divDim">
+  </div>
+ <span id="blinker2">█</span> 
+</section>
+  
+ 
+  <script src="/js/demo.js"></script>
+  <script src="/js/sql.js"></script>
+  <!--<script src="/js/cmd.js"></script>-->
+  <script src="/js/info.js"></script>
+  <!--<script src="/js/gsap.min.js"></script>
+  <script src="/js/view.js"></script>
+  <script src="/js/testapi.js"></script>-->
+</body>
+</html>

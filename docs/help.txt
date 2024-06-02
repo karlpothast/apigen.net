@@ -1,0 +1,28 @@
+
+
+      //       Usage: node [options] [ script.js ] [arguments]
+      //        node inspect [options] [ script.js | host:port ] [arguments]
+
+      // Options:
+      //   -h, --help                                print APIGen version
+      //   -v, --version                                print APIGen version
+      //   -v, --version                                print APIGen version
+
+      // Environment variables:
+      //   APIGEN_PATH                     ':'-APIgen install directory
+      //                               
+      // Documentation can be found at https://apigen.net/documentation`
+
+
+
+
+  // Usage: apigen "sql-connection-string"
+
+  // Options:
+  //   -h, --help                                print APIGen version
+  //   -v, --version                             print APIGen version
+                            
+  // Documentation can be found at https://apigen.net/documentation`
+
+
+

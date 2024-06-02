@@ -1,0 +1,137 @@
+:root {
+  --z-background2: -10;
+  --z-background: -5;
+  --z-base: 0; 
+  --z-body: 1; 
+  --z-foreground: 5; 
+  --z-popup1: 10; 
+  --z-popup2: 15; 
+  --z-alert: 20; 
+  --z-priority: 25; 
+  --white: #fbfbfb;
+}
+html{
+  font-size: 100%
+}
+body {
+  z-index: var(--z-body);
+  font-size: 1rem;
+}
+#app {
+  position:relative;
+  z-index: var(--z-body);
+  opacity:0.0;
+}
+.headerBar {
+  display: inline-block;
+  overflow: visible;
+  outline: none;
+  width:96.8%;
+}
+.tblLogoTitle{
+  width:100%;
+  margin-top:0px;
+  margin-left:2px;
+  visibility:visible;
+  border:solid 0px white;
+}
+#tdLogo {
+  cursor:pointer;
+  width:3vw;
+}
+#tdTitle {
+  width:76vw;
+}
+#tdNetLogo {
+  width:3vw;
+}
+#tdHeaderRight {
+  width:16vw;
+}
+.titleText {
+  font-family:'Noto Sans','Open Sans',Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--white);
+  font-size:1.8vw;
+  opacity:1.0;
+}
+.headerText {
+  font-family: 'Noto Sans','Open Sans',Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--white);
+  font-size:1.8vw;
+  opacity: 1.0;
+  margin-right:0.2vw;
+  margin-top:0.5vh;
+}
+.netLogo {
+  width:4vw;
+  /* margin-right:-0.1vw; */
+  margin-bottom:0.5vh;
+  vertical-align:top;
+}
+.divGlow {
+  visibility:visible;
+  position:absolute;
+  top: 3vh;
+  left: 1.4vw;
+  border:solid 0px white;
+  height:0.01vh;
+  width: 0.01vw;
+  box-shadow: 0px 0px 15px 15px rgba(45,255,196,0.9);
+  opacity: 0.0;
+  z-index: var(--z-app-foreground);
+} 
+.lightning0 {
+  visibility:hidden;
+  position:absolute;
+  top: 0vh;
+  left: 0.3vw;
+  z-index: var(--z-app-foreground);
+}
+.lightning1 {
+  visibility:hidden;
+  position:absolute;
+  top: 0.1vh;
+  left: 0.375vw;
+  z-index: var(--z-app-foreground);
+}
+.lightning2 {
+  visibility:hidden;
+  position:absolute;
+  top: 0.1vh;
+  left: 0.5vw;
+  z-index: var(--z-app-foreground);
+}
+.imgLogoMenu {
+  width:2.7vw;
+  margin-top:0.45vh;
+  margin-left:-0.01vw;
+  visibility:visible;
+  opacity: 1.0;
+  z-index: var(--z-priority);
+  cursor:pointer;
+} 
+.divDim {
+  position:absolute;
+  background-color:black;
+  z-index: var(--z-popup1);
+  visibility:hidden;
+  opacity:1;
+  height:100%;
+  width:100%;
+  margin:0px;
+  top:0px;
+}
+.whiteText {
+  color:#fbfbfb !important;
+}
+.tableBorders {
+  border:solid 1px black;
+}
+.tableBorders td {
+  border:solid 1px black;
+}
+/* table td {
+  border: 0px white solid !important;
+} */
+
+

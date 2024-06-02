@@ -1,0 +1,19 @@
+:root {
+  --z-background2: -10;
+  --z-background: -5;
+  --z-base: 0; 
+  --z-body: 1; 
+  --z-foreground: 5; 
+  --z-popup1: 10; 
+  --z-popup2: 15; 
+  --z-alert: 20; 
+  --z-priority: 25; 
+  --white: #fbfbfb;
+}
+body,html {
+  margin: 0;
+  padding: 0;
+}
+* {
+  box-sizing: border-box;
+}

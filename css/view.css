@@ -1,0 +1,116 @@
+:root {
+  --z-background2: -10;
+  --z-background: -5;
+  --z-base: 0; 
+  --z-foreground: 5; 
+  --z-popup1: 10; 
+  --z-popup2: 15; 
+  --z-alert: 20; 
+  --z-priority: 25; 
+  --white: #fbfbfb;
+}
+/*-----------------------------------------------------------*/
+.divViewAPIHeader {
+  height: 5vh;
+  width:  70vw;
+  border-radius: 10px;
+  background-color:#000;  
+  color:#fff;
+  font-size:1.2rem;
+  margin-left:1vw; 
+  /* margin-top:1vh;  */
+  background-color:whitesmoke; 
+  text-align:left;
+  filter: drop-shadow(13px 13px 15px #3e3d3d);
+  margin-top:2vh;
+}
+
+.divDownloadZip {
+  height: 10vh;
+  width:  70vw;
+  border-radius: 10px;
+  background-color:#000;  
+  color:#fff;
+  font-size:1.2rem;
+  margin-left:1vw; 
+  /* margin-top:1vh;  */
+  background-color:whitesmoke; 
+  text-align:left;
+  filter: drop-shadow(13px 13px 15px #3e3d3d);
+  margin-top:1vh;
+}
+
+#downloadZip{
+  font-size:1.5rem;
+  margin-left:1vw;
+  text-align:left;
+  margin-top:1vh;
+}
+
+.previewDiv {
+  filter: drop-shadow(13px 13px 15px #3e3d3d);
+  height: 600px;
+  width:  150px;
+  border-radius: 10px;
+  background-color:#000;  
+  color:#fff;
+  width:  70vw;
+  margin-left:1vw; 
+  margin-top:1vh; 
+  background-color:whitesmoke; 
+  overflow: scroll;
+}
+
+.divIframe {
+  margin-left:1vw; 
+  margin-top:0vh; 
+}
+
+.previewText {
+  color:black;
+  font-size:12pt;
+  margin-top:5px;
+  margin-left:1vw;
+  text-decoration:underline;
+}
+
+.apiViewTitleText {
+  color:#6F22CA;
+  font-size:18pt;
+  margin-top:5px;
+  margin-left:1vw;
+  font-weight:bold;
+}
+
+.viewAPI{
+  height:70vh;
+  width:80vw;
+  vertical-align:top;
+}
+
+#lblAPICleared {
+  font-size:0.8rem;
+  visibility:hidden;
+  margin-top:2vh;
+  color:#6F22CA;
+}
+
+iframe { 
+  overflow: hidden;
+  position: relative;
+  width:100%;
+  height:1600px;
+  -ms-zoom: 0.9;
+  zoom: 0.9;
+  -moz-transform: scale(0.9);
+  transform: scale(0.9);
+  -moz-transform-origin: 0px 0;
+  transform-origin: 0px 0;
+  -o-transform: scale(0.9);
+  -o-transform-origin: 0 0;
+  -webkit-transform: scale(0.9);
+  -webkit-transform-origin: 0 0; 
+  margin-top:1vh;
+  margin-left:1vw;
+  position:relative;
+  }

@@ -1,0 +1,236 @@
+:root {
+  --z-background2: -10;
+  --z-background: -5;
+  --z-base: 0; 
+  --z-foreground: 5; 
+  --z-popup1: 10; 
+  --z-popup2: 15; 
+  --z-alert: 20; 
+  --z-priority: 25; 
+  --white: #fbfbfb;
+}
+#btnInfoCircle {
+  position:absolute;
+  opacity:0.0;
+  top:10.3vh;
+  left:0.44vw;
+  z-index: var(--z-popup2);
+  width:1.8vw;
+  height:1.8vw;
+  border: solid 0.124vw #e5ff60;
+  background-color: #1F1F1F;
+  border-radius:8vw;
+  /* box-shadow:0 0.5vh 0.2vw -0.05vh #e5ff60; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor:pointer;
+}
+.imgInfo {
+  width:1vw;
+  margin-left:-0.09vw;
+  margin-top:0.07vw;
+}
+.divInfo {
+  top: 20vh;
+  left: 20vw;
+  width: 38vw;
+  height: 55vh;
+  position: absolute;
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+  z-index:15;
+  visibility:hidden;
+
+} 
+.divNewApiInfo {
+  top: 20vh;
+  left: 20vw;
+  width: 38vw;
+  height: 55vh;
+  position: absolute;
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+  z-index:15;
+  visibility:hidden;
+  display:none;
+} 
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 100%; 
+  perspective: 1000px;
+  border-style: none;
+  margin:0;
+  padding:0;
+ }
+.flip-card-hover {
+  transform: rotateY(180deg);
+ } 
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  padding:0;
+}
+.modalImg {
+  display: inline; 
+  text-align:left;
+  width:18.2vw;
+  margin-left:-8vw;
+}
+#textWrapper {
+  height:100%;
+  width:100%;
+}
+#textWrapperAPI {
+  height:100%;
+  width:100%;
+}
+.modalInfoText {
+  font-family:'Noto Sans', Tahoma, Geneva, Verdana, sans-serif;
+  height:100%;
+  width:19vw;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  margin-top: 1vh;
+}
+.modalInfoText h1 {
+  font-family:'Noto Sans', Tahoma, Geneva, Verdana, sans-serif;
+  font-size:0.9rem;
+  font-weight:bold;
+}
+.modalInfoText p {
+  font-family:'Noto Sans', Tahoma, Geneva, Verdana, sans-serif;
+  font-size:0.85rem;
+  margin-top:5vh;
+}
+.modalNewAPIText {
+  font-family:'Noto Sans', Tahoma, Geneva, Verdana, sans-serif;
+  height:100%;
+  width:19vw;
+  text-align:left;
+  margin-top: 1vh;
+  margin-left: 1.5vw;
+  margin-right: 1vw;
+}
+.modalNewAPIText h1 {
+  font-family:'Noto Sans', Tahoma, Geneva, Verdana, sans-serif;
+  font-size:1.3rem;
+  font-weight:bold;
+  margin-top: 7vh;
+}
+.modalNewAPIText p {
+  font-family:'Noto Sans', Tahoma, Geneva, Verdana, sans-serif;
+  font-size:1rem;
+  padding-right: 1vw;
+  margin-top: 10vh;
+
+}
+.banner-card-front, .banner-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.banner-card-front {
+  background-color: #bbb;
+  color: black;
+}
+.banner-card-back {
+  background-color: white;
+  color: black;
+  transform: rotateY(180deg);
+  border-image-width:0;
+}
+.step {
+  color:darkblue;
+}
+.blurred{
+  filter: blur(3px);
+}
+.closeBtn {
+  position:absolute;
+  top:-2vh;
+  right:-1vw;
+  border : 1px solid gray;
+  height: 5vh;
+  width: 5vh;
+  border-radius:50%;
+  display: grid;
+  place-items: center;
+  background-color:#01123E;
+  color:white;
+  font-size:2.5vh;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.closeBtn:hover{
+  background: #4c5f99;
+}
+
+
+
+table {
+  border-collapse:collapse;
+  height:100%;
+  width:100%;
+}
+td img {
+  vertical-align: bottom;
+}
+table, tr, td, th{
+  padding: 0px;
+  margin: auto;
+  border: none;
+}
+  
+
+.btnClearAPI {
+  height: 5vh;
+  width: 15vw;
+  border-radius: 10px;
+  background-color:#000;  
+  color:#fff;
+  font-size:1.2rem;
+  margin-left:1vw; 
+  margin-right:2vw; 
+  background-color:whitesmoke; 
+  margin-top:1vh;
+  filter: drop-shadow(4px 4px 5px #3e3d3d);
+  color:#6F22CA;
+  font-weight:bold;  
+}
+
+.btnClearAPI:hover {
+  border-color: #6F22CA;
+}
+
+
+
+.flip-card-api {
+  background-color: transparent;
+  width: 100%;
+  height: 100%; 
+  perspective: 1000px;
+  border-style: none;
+  visibility: hidden;
+  margin:0;
+  padding:0;
+ }
+ .flip-card-api-hover {
+  transform: rotateY(180deg);
+ } 
+.flip-card-api-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  padding:0;
+}

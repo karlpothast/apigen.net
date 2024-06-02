@@ -1,0 +1,254 @@
+:root {
+  --z-background2: -10;
+  --z-background: -5;
+  --z-base: 0; 
+  --z-foreground: 5; 
+  --z-popup1: 10; 
+  --z-popup2: 15; 
+  --z-alert: 20; 
+  --z-priority: 25; 
+  --white: #fbfbfb;
+}
+/*-----------------------------------------------------------*/
+#divStars {
+  position: absolute;
+  width: 3.125vw;
+  left: 0px;
+  height: 6.418vh;
+  background: transparent;
+  border: solid 0px yellow;
+  border-radius: 50%;
+  opacity:0; 
+  z-index: var(--z-app-foreground);
+  top:39vh;
+  left:0.0vw;
+  width:2vw;
+  display:none;
+}
+.littlestar {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  background: #fff;
+  opacity:1.0;
+}
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: #fff;
+  opacity:1.0;
+}
+.bigstar {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: #fff;
+  opacity:1.0;
+}
+.biggerstar {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #fff;
+  opacity:1.0;
+}
+.sun {
+  position: absolute;
+  width: 4px;
+  height: 5px;
+  border-radius: 50%;
+  background: yellow;
+  opacity:1.0;
+  box-shadow: 0px 0px 1px 2px rgba(214, 228, 177, 0.3);
+}
+.littlesun {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: yellow;
+  opacity:1.0;
+}
+.faintstar {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: #fff;
+  opacity:0.7;
+}
+
+.star1 {
+  top: 1px;
+  left: 40px;
+  animation: star-active4 2s linear 1s infinite;
+}
+.star2 {
+  top: 2px;
+  left: 20px;
+  animation: star-active1 3s linear 1s infinite;
+}
+.star3 {
+  top: 2px;
+  left: 15px;
+  animation: star-active2 1s linear 5s infinite;
+}
+.star4 {
+  top: 2px;
+  left: 29px;
+  animation: star-active1 2s linear 5s infinite;
+}
+.star5 {
+  top: 1px;
+  left: 5px;
+  animation: star-active1 2s linear 4s infinite;
+}
+.star6 {
+  top: 30px;
+  left: 21px;
+  animation: star-active4 1s linear 4s infinite;
+}
+.star7 {
+  top: 6px;
+  left: 33px;
+  animation: star-active3 4s linear 2s infinite;
+}
+.star8 {
+  top: 19px;
+  left:20px;
+}
+.star9 {
+  top: 7px;
+  left: 26px;
+  animation: star-active1 2s linear 5s infinite;
+}
+.star10 {
+  top: 8px;
+  left: 10px;
+  animation: star-active3 4s linear 2s infinite;
+}
+.star11 {
+  top: 16px;
+  left: 13px;
+  animation: star-active3 1s linear 2s infinite;
+}
+.star12 {
+  top: 33px;
+  left: 37px;
+  animation: star-active3 4s linear 2s infinite;
+}
+.star13 {
+  top: 16px;
+  left: 7px;
+  animation: star-active2 1s linear 5s infinite;
+}
+.star14 {
+  top: 18px;
+  left: 36px;
+  animation: star-active1 3s linear 5s infinite;
+}
+.star15 {
+  top: 15px;
+  left: 28px;
+  animation: star-active1 2s linear 4s infinite;
+}
+.star16 {
+  top: 26px;
+  left: 14px;
+  animation: star-active3 4s linear 2s infinite;
+}
+.star17 {
+  top: 27px;
+  left: 24px;
+  animation: star-active3 4s linear 2s infinite;
+}
+.star18 {
+  top: 32px;
+  left: 6px;
+  animation: star-active2 1s linear 5s infinite;
+}
+.star19 {
+  top: 27px;
+  left: 32px;
+  animation: star-active1 3s linear 5s infinite;
+}
+.star20 {
+  top: 26px;
+  left: 22px;
+  animation: star-active1 2s linear 4s infinite;
+}
+
+.shooting-star {
+  position: relative;
+  width: 50px;
+  height: 2px;
+  border-radius: 4px;
+  background: url(../assets/images/shooting-star.png) center center no-repeat;
+  background-size: 100% 100%;
+  opacity:0.6;
+}
+.shooting-star1 {   
+  left: -50px; 
+  top: 50px; 
+  transform: rotate(140deg);  
+  animation: shooting-star-animation 30s linear 15s infinite;   
+}
+@keyframes shooting-star-animation {
+  0% {
+    transform: translate3d(125px, -100px, 0) rotate(140deg); 
+    opacity:0;
+  }
+  2% {
+    transform: translate3d(0px, 0px, 0) rotate(140deg);
+    opacity:1;
+  }
+  20% {
+    transform: translate3d(0px, 0px, 0) rotate(140deg);
+    opacity:0;
+  }
+  100% {
+    transform: translate3d(0px, 0px, 0) rotate(140deg);
+    opacity:0;
+  }
+}
+@keyframes star-active1 {
+  0%,
+  100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+@keyframes star-active2 {
+  0%,
+  100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+@keyframes star-active3 {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+@keyframes star-active4 {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1.0;
+  }
+}

@@ -1,0 +1,190 @@
+html { 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+body {
+  font-size:11pt;
+  font-family:"Sans-Serif", "Serif";
+  font-weight:500;
+}
+.sideHeaderContent {
+  margin-top:15px;
+}
+.sidebarTitle {
+  font-size: 14px;
+  font-family: "Lato", "Arial", "sans-serif";
+}
+  .sidebarItems {
+    font-size: 12px;
+  font-family: "Lato", "Arial", "sans-serif";
+  }
+
+  .sidebarItems li {
+    font-size: 14px;
+  font-family: "Lato", "Arial", "sans-serif";
+  }
+
+  /* text-align: center;
+  box-sizing: border-box;
+  text-decoration: none;
+  cursor: pointer;
+  font: normal normal normal 14px/1 FontAwesome;
+  text-rendering: auto;
+  font-family: inherit;
+  -webkit-font-smoothing: antialiased;
+  color: #fcfcfc; 
+  font-weight: bold;
+  display: inline-block;
+  padding: 4px 6px;
+  margin-bottom: .809em; */
+
+.version {
+  color:lightblue;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+.sidebarLower {
+  font-family: "Lato","proxima-nova",Arial,sans-serif;
+  cursor: default;
+  color: #3a7ca8;
+  line-height: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 85%;
+  white-space: nowrap;
+  box-sizing: border-box;
+  font-size: 11pt;
+  font-family: "Sans-Serif", "Serif";
+  font-weight: 500;
+  -webkit-text-size-adjust: 100%;
+  font-family: "Lato","proxima-nova",Arial,sans-serif;
+  font-weight: normal;
+  list-style: none;
+  box-sizing: border-box;
+  text-decoration: none;
+  cursor: pointer;
+  line-height: 18px;
+  padding: .4045em 1.618em;
+  display: block;
+  position: relative;
+  font-size: 90%;
+  color: #d9d9d9;
+}
+.list {
+  list-style-type: none
+}
+
+.sidebarLower li ul {
+  font-size:10pt important;
+}
+.sidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #343131;
+  overflow-x: hidden;
+}
+.sideHeader{
+  background-color:#2980B9;
+  width:100%;
+  vertical-align:top;
+  -webkit-text-size-adjust: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  text-decoration: none;
+  cursor: pointer;
+  font: normal normal normal 14px/1 FontAwesome;
+  text-rendering: auto;
+  font-family: inherit;
+  -webkit-font-smoothing: antialiased;
+  color: #fcfcfc;
+  font-size: 100%;
+  font-weight: bold;
+  display: inline-block;
+  padding: 4px 6px;
+  margin-bottom: .809em;
+  height: 117px;
+}
+.search{
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  vertical-align: baseline;
+  line-height: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-appearance: none;
+  appearance:none;
+  display: inline-block;
+  border: 1px solid #ccc;
+  font-size: 80%;
+  font-family: "Lato","proxima-nova",Arial,sans-serif;
+  box-shadow: inset 0 1px 3px #ddd;
+  transition: border .3s linear;
+  width: 100%;
+  border-radius: 50px;
+  padding: 6px 12px;
+  border-color: #2472a4;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.paragraphHeading {
+  -webkit-text-size-adjust: 100%;
+  font-size: 16px;
+  font-family: "Lato","proxima-nova",Arial,sans-serif;
+  font-family: "Roboto Slab", ff-tisa-web-pro, Georgia, Arial, sans-serif;
+  font-weight: normal;
+  color: #404040;
+  cursor: default;
+  box-sizing: border-box;
+  display: block;
+}
+
+.main {
+  margin-left: 250px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.table {
+  display: table;
+  text-align: center; 
+  line-height: 40px;
+}
+.table-header { font-weight: bold; }
+.row  {
+  display: table-row;
+}
+.cell {
+  display: table-cell;
+  outline: 1px solid; 
+  float: left;
+}
+.colspan1 { width: 33.3%; }
+.colspan2 { width: 66.6%; }
+.colspan3 { width: 100%; }
+.cell-rowspan {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+}

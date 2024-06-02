@@ -1,0 +1,118 @@
+:root {
+  --z-background2: -10;
+  --z-background: -5;
+  --z-base: 0; 
+  --z-foreground: 5; 
+  --z-popup1: 10; 
+  --z-popup2: 15; 
+  --z-alert: 20; 
+  --z-priority: 25; 
+  --white: #fbfbfb;
+}
+.nav-container {
+  z-index: 50; 
+  position: absolute;
+  border:solid 0px white;
+  display: inline-block;
+  overflow: visible;
+  outline: none;
+  top: 0vw;
+  left: 0vw;
+  height:3.5vh;
+  width:1.55vw;
+  margin-top: 5.2vh;
+  margin-left: 0.6vw;
+  max-width: 1.55vw;
+  max-height: 5.13vh;
+  width:97%;
+  border:solid 0px blue;
+ }
+ .nav-container.is-active .nav-toggle:before, .nav-container.is-active .nav-toggle:after {
+  box-shadow: none;
+ }
+ .nav-container.is-active .nav-toggle:before {
+  transform: rotate(-45deg);
+ }
+ .nav-container.is-active .nav-toggle:after {
+  transform: rotate(45deg);
+ }
+ .nav-container.is-active .nav-items {
+  transform: translate(0, 0);
+ }
+ .nav-container .nav-toggle {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border:solid 0px white;
+ }
+ .nav-container .nav-toggle:hover {
+  cursor: pointer;
+ }
+ .nav-container .nav-toggle:before, .nav-container .nav-toggle:after {
+  content: "";
+  position: absolute;
+  top: 2.1vh;
+  left: 0vw;
+  transform: translate(0, 0);
+  width: 100%;
+  height: 0.28vh;
+  background: var(--white);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+ }
+ .nav-container .nav-toggle:before {
+  box-shadow: 0 1.3vh 0 0 white; 
+ }
+ .nav-container .nav-toggle:after {
+  box-shadow: 0 -1.3vh 0 0 white; 
+ }
+ #navMenu {
+  position:absolute;
+  visibility:hidden;
+  background-color: var(--white);
+  margin-top:-20px;
+  margin-left:10px;
+  left:30px;
+  width:56vw;
+  height:80vh;
+  background: #24021b;
+  box-shadow: 10px 10px 5px -4px rgba(23, 24, 24, 0.81);
+  border-radius:5px; 
+  z-index: var(--z-popup2);
+ } 
+.menuContent {
+  background-color:yellow;
+
+  margin:1vw;
+}
+ .nav-container .nav-items {
+  position: absolute;
+  border: solid 0px white;
+  top: 0;
+  min-width: 33%;
+  max-width: 50vw;
+  width: 50vw;
+  height: 50vh;
+  padding: 40px 10px 10px 5px;
+  transition: transform 0.3s ease;
+  transform: translate(calc(-100% - 50px), 0);
+  background: black;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 5px 0;
+  align-content: start;
+  align-content: start;
+  filter: drop-shadow(2px 2px 1px #4d6082);
+ }
+ .nav-container .nav-items .nav-item {
+  background: #e2e2e2;
+  padding: 5px;
+  transition: background-color 0.3s ease;
+ }
+ .nav-container .nav-items .nav-item:hover {
+  cursor: pointer;
+  background: #d6d6d6;
+ }
+ .tab-content {
+  width:100%;
+  background-color:white;
+ }
