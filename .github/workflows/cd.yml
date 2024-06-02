@@ -14,11 +14,7 @@ jobs:
         port: ${{ secrets.SSH_PORT }}
         key: ${{ secrets.SSH_KEY }}
         script: |
-          cd /var/www/html2/node1;
-          killall node;
+          cd /var/www/html;
           git pull origin master;
-          npm install --only=prod;
-          node index.js;
-
 
 
