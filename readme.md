@@ -10,7 +10,7 @@
 
 ## 2. Enter the SQL Connection String and Execute APIGen
 
-![image](https://github.com/karlpothast/apigen.net/assets/13120778/dbcc6526-335e-4cd3-b7af-0f53f080b8d6)
+![image](https://github.com/karlpothast/apigen.net/assets/13120778/af5bbee7-3f64-4553-801d-ce4886676af7)
 
 ## 3. Test/Download your API
 
