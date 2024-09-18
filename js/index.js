@@ -148,6 +148,16 @@ function initIndex() {
     $("#lightning1").css({ visibility: "hidden" });
   }, 2500);
 }
+
+function checkUrl() {
+  let url = window.location.href;
+  let loopbackAddress = "127.0.0.1";
+  if (url.includes(loopbackAddress)) {
+    window.location.replace(
+      url.replace(loopbackAddress,"localhost"),
+    );
+  }
+}
 //#endregion
 
 //#region events
@@ -408,6 +418,7 @@ function removeCookie(name) {
 window.onload = (event) => {
   //log("index.js load event")
   initIndex();
+  checkUrl();
 };
 
 function fadeToBlack() {
