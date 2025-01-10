@@ -184,6 +184,20 @@ function archiveAPI() {
     })
 }
 
+function stopTestApi() {
+  testAPI("10").then(
+    function(value)
+    {
+      apiResp = JSON.parse(value);
+      console.log('archive api resp');
+      console.log(apiResp);
+      //deleteAPI();
+    },
+    function(error) {
+      console.log(error);
+    })
+}
+
 function deleteAPI() {
   testAPI("7").then(
     function(value)
