@@ -107,32 +107,31 @@ function checkAPIRunning() {
 function setZip(testAPIName) {
     testAPIBaseURL = "https://testgen.net";
     lblAPIName.innerText = testAPIName;
-
     let apiResp = null;
     testAPI("11").then(
     function(value)
     {
       apiResp = JSON.parse(value);
-      //  console.log(apiResp);
+      //console.log(apiResp);
 
-//  var downloadZipLink = testAPIBaseURL + "/" + testAPIName + ".zip";
-  var downloadZipLink = apiResp.CmdResponse;
-    downloadZipImg.href = downloadZipLink;
-    downloadZipImg.target = "_blank";
-    aDownloadZip.href = downloadZipLink;
-    aDownloadZip.innerText = testAPIName + ".zip";
-    aDownloadZip.target = "_blank";
+      //var downloadZipLink = testAPIBaseURL + "/" + testAPIName + ".zip";
+      var downloadZipLink = apiResp.CmdResponse;
+      downloadZipImg.href = downloadZipLink;
+      downloadZipImg.target = "_blank";
+      aDownloadZip.href = downloadZipLink;
+      aDownloadZip.innerText = testAPIName + ".zip";
+      aDownloadZip.target = "_blank";
 
-     // setTimeout(() => {
-//      lblAPICleared.style.visibility = "visible";
-  //    lblAPICleared.innerText = "API archived.";
-    //  removeCookie("tab");
-  //     fadeToBlack();
- //      }, 1500);
-      },
-      function(error) {
-        console.log(error);
-      })
+        // setTimeout(() => {
+        //      lblAPICleared.style.visibility = "visible";
+        //    lblAPICleared.innerText = "API archived.";
+        //  removeCookie("tab");
+        //     fadeToBlack();
+        //      }, 1500);
+    },
+    function(error) {
+      console.log(error);
+    })
 }
 
 function setNotReady() {
