@@ -1,5 +1,5 @@
 var testAPIBaseURL = "https://testgen.net";
-const apiGenBaseURL = "https://apigenapi.net";
+const apiGenBaseURL = apiBaseURL;
 
 // Legend
 // ------------------
@@ -119,8 +119,6 @@ async function testAPI(cmd) {
   var JSONStringifiedText = JSON.stringify(jsonString);
   var JSONParsedJSONStringifiedText = JSON.parse(JSONStringifiedText);
   var bodyPostJSON = JSONParsedJSONStringifiedText;
-
-  const apiBaseURL = "https://apigenapi.net";
 
   return await fetch(apiBaseURL + "/APIGen/TestAPICommand", {
     method: "POST",

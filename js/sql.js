@@ -1,6 +1,6 @@
 //#region "Constants"
 const debug = false;
-const sqlAPIBaseURL = "https://apigenapi.net";
+const sqlAPIBaseURL = apiBaseURL;
 const username = "sa";
 const password = "n3wsdminDockr2022";
 const exampleDBList = "NORTHWIND;TODOLIST;";
@@ -40,7 +40,7 @@ const initSql = async () => {
     tab = document.getElementsByClassName("tab");
     hideTabsContent(1);
 
-    var SQLServerDomainURL = "https://apigenapi.net";
+    var SQLServerDomainURL = apiBaseURL;
     var SQLServerAvailable;
 
     checkSQLServer(SQLServerDomainURL).then(
@@ -79,7 +79,7 @@ async function checkSQLServerAvailability(url) {
   var online = false;
 
   return (
-    await fetch("https://apigenapi.net"),
+    await fetch(apiBaseURL),
     {
       method: "GET",
       headers: {

@@ -419,6 +419,7 @@ window.onload = (event) => {
   //log("index.js load event")
   initIndex();
   checkUrl();
+  checkLoggedIn();
 };
 
 function fadeToBlack() {
@@ -439,6 +440,23 @@ function fadeAppIn(timeoutVal, durationVal) {
   setTimeout(() => {
     $('#app').animate({opacity: 1.0}, durationVal);
   }, timeoutVal);
+
+}
+
+function checkLoggedIn() {
+  // sqlTabTitle.disabled = true;
+  // sqlPreviewTab.disabled = true;
+  // sqlWindowBackground.disabled = true;
+  // divInner.disabled = true;
+  // console.log('disabled');
+
+  // sqlTabTitle.onclick = null;
+  // sqlPreviewTab.onclick = null;
+  // sqlWindowBackground.onclick = null;
+  //divInner.onclick = null;
+
+  console.log('onclick null');
+
 
 }
 

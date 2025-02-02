@@ -1,3 +1,3 @@
 
-const apiBaseURL = "https://apigenapi.net";
+const apiBaseURL = "https://localhost:5000";
 const env = "prod1";

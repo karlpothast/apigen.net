@@ -1,0 +1,91 @@
+.ghbtn {
+  position:relative;
+  color:white;
+  /* background-color:black; */
+  background-color:#56555c;
+  width:10.5vw;
+  min-width:110px;
+  height:4vh;
+  min-height:20px;
+  padding:0.2vh;
+  border-radius:0.3rem;
+  box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.6);
+  cursor:pointer;
+  font-size:0.8rem !important;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.ghbtn:active {
+  margin-top:0.3vh;
+  margin-left:0.2vw;
+  box-shadow: none;
+}
+.logged-in {
+  position:relative;
+  color:white;
+  background-color:black;
+  width:10vw;
+  min-width:110px;
+  height:4vh;
+  min-height:20px;
+  padding:0.2vh;
+  box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.6);
+  font-size:0.8rem !important;
+}
+.flash{
+  overflow:hidden;
+  border: 0px solid rgba(255, 255, 255, 0);
+  transition:all .2s ease-in-out;
+}
+.flash:before{
+  content:" ";
+  display:block;
+  width:200px;
+  height:80px;
+  background:rgba(255, 255, 255, .4);
+  position:absolute;
+  top:-10px;
+  left:-200px;
+  transform:rotate(-45deg);
+  transition:all .2s ease;  
+}
+.flash:hover:before{
+  margin-left:300%;
+}
+.ghsvg {
+  width:1.2vw;
+  min-width:12px;
+  margin-left:-0.3vw;
+  margin-top:0.2vh;
+}
+.github-span {
+  position:relative;
+  vertical-align:middle;
+  margin-top:0px;
+  cursor:pointer;
+  font-size:calc(6px + 0.5vw);
+  margin-left:0.3vw;
+}
+.github-span-logout {
+  position:relative;
+  vertical-align:bottom;
+  margin-top:0px;
+  cursor:pointer;
+  font-size:calc(6px + 0.5vw);
+  color:cyan;
+}
+.welcomeText {
+  position:relative;
+  color:cyan;
+  position:relative;
+  vertical-align:super;
+  margin-top:0px;
+  font-size:8pt;
+}
+
+.status-bar{
+  margin-top:1vh;
+  border:0px solid white;
+  height:5vh;
+}
+
+
