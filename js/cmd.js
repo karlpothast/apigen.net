@@ -869,14 +869,12 @@ async function generateAPI(connString) {
   var dbConnStringText = "databaseConnectionString";
   dbConnStringText = "\"" + dbConnStringText + "\"";
   var jsonString;
-  connString = connString.replace(/^"(.*)"$/, '$1');//remove any double quotes to start
+  connString = connString.replace(/^"(.*)"$/, '$1');
   connString="\\\"" + connString + "\\\"";
   jsonString = "{" + dbConnStringText + ":" + "\"" + connString.trim() + "\"" + "}";
   var JSONStringifiedText = JSON.stringify(jsonString);
   var JSONParsedJSONStringifiedText = JSON.parse(JSONStringifiedText);
   var bodyPostJSON = JSONParsedJSONStringifiedText;
-
-  const apiBaseURL = "https://apigenapi.net";
   var request = document.getElementById("request");
 
   return await fetch(apiBaseURL + "/APIGen/GenerateAPI", {
