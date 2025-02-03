@@ -13,7 +13,6 @@ const lblLog = document.getElementById("lblLog");
 const lblWelcome = document.getElementById("lblWelcome");
 const lblSignIn = document.getElementById("lblSignIn");
 const imgGithubSvg = document.getElementById("imgGithubSvg");
-let clientId = "Iv23libYTtd7k7plpLSD";
 let user = {};
 const welcomeText = document.getElementById("welcomeText");
 let loggedIn = false;
@@ -23,7 +22,7 @@ window.addEventListener("load", (event) => {
 });
 
 const initialize = async () => {
-  let loggedInUser = getCookie("loggedInUser");
+  let loggedInUser = getCookie("loggedInUser_"+env);
   let loggedInUserArray;
   if (loggedInUser && loggedInUser.length > 0) {
     loggedIn = true;
@@ -97,7 +96,7 @@ async function getUserSessionToken() {
           let gh_id = ghuser.id;
           let gh_type = ghuser.type;
           let cookieValue = "ghid:" + gh_id + "|gh_type:" + gh_type + "|gh_email:" +  gh_email + "|gh_login:" + gh_login + "|gh_name:" + gh_name + "|gh_avatar_url:" + gh_avatar_url;
-          setCookie("loggedInUser", cookieValue, 8);
+          setCookie("loggedInUser_"+env, cookieValue, 8);
           window.location.replace("/")
         }
         else {
@@ -176,7 +175,7 @@ function logout() {
   document.cookie = "loggedInUser=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }
 
-function setCookie(name, value, hours) {
+function getCookie(name, value, hours) {
   const date = new Date();
   date.setTime(date.getTime() + (hours * 60 * 60 * 1000)); 
   const expires = "expires=" + date.toUTCString();
