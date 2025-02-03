@@ -12,7 +12,7 @@
 
 ![image](https://github.com/karlpothast/apigen.net/assets/13120778/af5bbee7-3f64-4553-801d-ce4886676af7)
 
-## 3. Test/Download your API
+## 3. Test/Download your new API
 
 ![image](https://github.com/karlpothast/apigen.net/assets/13120778/04f70a52-7c2a-4463-85a3-ae2aee6389ab)
 
