@@ -1,4 +1,4 @@
-# APIGen.net
+# <a href="https://apigen.net">APIGen.net</a>
 
 ## .NET Web API Generator
 
