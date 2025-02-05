@@ -2,6 +2,8 @@
 
 ## .NET Web API Generator
 
+Generate a domain driven .NET Web API for an entire database given only a SQL connection.
+
 ![image](https://github.com/karlpothast/apigen.net/assets/13120778/8e587a60-47e9-494d-9a66-cc0789377cf6)
 
 ## 1. Choose/Create your SQL DB
@@ -15,4 +17,7 @@
 ## 3. Test/Download your new API
 
 ![image](https://github.com/karlpothast/apigen.net/assets/13120778/04f70a52-7c2a-4463-85a3-ae2aee6389ab)
+
+![image](https://github.com/user-attachments/assets/8cf1b137-08e7-403f-a08f-dd059ff2498e)
+
 
