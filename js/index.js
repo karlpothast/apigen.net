@@ -14,6 +14,8 @@ const sideBarNav = document.getElementById("sideBarNav");
 const sideBarButton1 = document.getElementById("sideBarButton1");
 const sideBarButton2 = document.getElementById("sideBarButton2");
 const sideBarButton3 = document.getElementById("sideBarButton3");
+const divInner = document.getElementById("divInner");
+const popupLogin = document.getElementById("popupLogin");
 
 //#region init
 setTimeout(function () {
@@ -39,7 +41,6 @@ $closeBtnsArr.forEach(function ($btn) {
 });
 
 function setInnerModeOn() {
-
   setTimeout(() => {
     $('#sideBarNav').css({opacity: 0.0});
     // $('#btnNewAPI').css({opacity: 0.0});
@@ -290,23 +291,29 @@ function closeModal() {
 
 //#region methods
 function openSQLWindow() {
-  setInnerModeOn();
-  setCookie("tab", "sql");
-  $(document).ready(function () {
-    setTimeout(() => {
-      $("#winBg")
-        .css({ visibility: "visible" })
-        .animate({ opacity: 1.0 }, { duration: 1000 });
-    }, 1);
-    setTimeout(() => {
-      btnInfoCircle.disabled = false;
-      btnInfoCircle.style.opacity = "1.0";
-      $("#btnInfoCircle")
-        .css({ visibility: "visible" })
-        .animate({ opacity: 1.0 }, { duration: 1000 });
-    }, 1000);
-    
-  });
+  if (loggedIn) {
+    //divDim.style.visibility = "hidden";
+    setInnerModeOn();
+    setCookie("tab", "sql");
+    $(document).ready(function () {
+      setTimeout(() => {
+        $("#winBg")
+          .css({ visibility: "visible" })
+          .animate({ opacity: 1.0 }, { duration: 1000 });
+      }, 1);
+      setTimeout(() => {
+        btnInfoCircle.disabled = false;
+        btnInfoCircle.style.opacity = "1.0";
+        $("#btnInfoCircle")
+          .css({ visibility: "visible" })
+          .animate({ opacity: 1.0 }, { duration: 1000 });
+      }, 1000);
+      
+    });
+  }
+  else {
+    popupLoginMessageAndFade();
+  }
 }
 function closeSQLWindow() {
   setInnerModeOff();
@@ -328,19 +335,24 @@ function closeSQLWindow() {
   });
 }
 function openAPIGenWindow(from) {
-  setInnerModeOn();
-  setCookie("tab", "apigen");
-  $(document).ready(function () {
-    loadCmdFromIndex("");
+  if (loggedIn) {
+    setInnerModeOn();
+    setCookie("tab", "apigen");
+    $(document).ready(function () {
+      loadCmdFromIndex("");
 
-    setTimeout(() => {
-      $("#btnInfoCircle")
-        .css({ visibility: "visible" })
-        .animate({ opacity: 0.4 }, { duration: 1000 });
-        $("#btnInfoCircle").prop("disabled", true);
-    }, 1000);
+      setTimeout(() => {
+        $("#btnInfoCircle")
+          .css({ visibility: "visible" })
+          .animate({ opacity: 0.4 }, { duration: 1000 });
+          $("#btnInfoCircle").prop("disabled", true);
+      }, 1000);
 
-    }, 1);
+      }, 1);
+  }
+  else {
+    popupLoginMessageAndFade();
+  }
 }
 function closeAPIGenWindow() {
   //setInnerModeOff();
@@ -353,18 +365,24 @@ function closeAPIGenWindow() {
 
 }
 function openViewAPIWindow() {
-  setInnerModeOn();
-  setCookie("tab", "viewapi");
-   $(document).ready(function () {
-    loadCmdFromIndex("");
+  if (loggedIn) {
+    setInnerModeOn();
+    setCookie("tab", "viewapi");
+    $(document).ready(function () {
+      loadCmdFromIndex("");
 
-      setTimeout(() => {
-        $("#btnInfoCircle")
-          .css({ visibility: "visible" })
-          .animate({ opacity: 1.0 }, { duration: 1000 });
-      }, 1000);
+        setTimeout(() => {
+          $("#btnInfoCircle")
+            .css({ visibility: "visible" })
+            .animate({ opacity: 1.0 }, { duration: 1000 });
+        }, 1000);
 
-    }, 1);
+      }, 1);
+  }
+  else 
+  {
+    popupLoginMessageAndFade();
+  }
 }
 
 function closeViewAPIWindow() {
@@ -417,9 +435,16 @@ function removeCookie(name) {
 
 window.onload = (event) => {
   //log("index.js load event")
+  if (loggedIn) {
+    divDim.style.visibility = "hidden";
+    console.log('logged in');
+  }
+  else
+  {
+    console.log('not logged in');
+  }
   initIndex();
   checkUrl();
-  checkLoggedIn();
 };
 
 function fadeToBlack() {
@@ -430,7 +455,6 @@ function fadeToBlack() {
   }, 100);
 
   setTimeout(() => {
-     //window.reload();
      location.href="";
   }, 200);
 }
@@ -443,22 +467,6 @@ function fadeAppIn(timeoutVal, durationVal) {
 
 }
 
-function checkLoggedIn() {
-  // sqlTabTitle.disabled = true;
-  // sqlPreviewTab.disabled = true;
-  // sqlWindowBackground.disabled = true;
-  // divInner.disabled = true;
-  // console.log('disabled');
-
-  // sqlTabTitle.onclick = null;
-  // sqlPreviewTab.onclick = null;
-  // sqlWindowBackground.onclick = null;
-  //divInner.onclick = null;
-
-  console.log('onclick null');
-
-
-}
 
 window.addEventListener("unhandledrejection", function (evt) {
   console.log("Promise exception");
@@ -466,8 +474,53 @@ window.addEventListener("unhandledrejection", function (evt) {
 });
 
 
+function popupLoginMessageAndFade() {
+  setTimeout(() => {
+    $("#divDim")
+      .css({ visibility: "visible" })
+      .animate({ opacity: 0.7 }, { duration: 1000 })
+    }, 1000);
+
+    setTimeout(() => {
+    $("#popupLogin")
+      .css({ display: "block" })
+      .animate({ opacity: 1.0 }, { duration: 1000 })
+  }, 1000);
+
+}
+
+let popupLoginClicked = false;
+document.addEventListener('click', function(event) {
+  //console.log('anywhere clicked');
+  if (!popupLoginClicked) {
+    if (divDim.style.visibility == "visible") {
+      let divDimOpacity = Number(divDim.style.opacity);
+      if (divDimOpacity > 0.5) {
+  
+        setTimeout(() => {
+          $("#divDim")
+            .animate({ opacity: 0.0 }, { duration: 1000 })
+          }, 1000);
+
+          setTimeout(() => {
+              divDim.style.visibility = "hidden";
+          }, 1001);
+
+          removeCookie("tab");
+          window.location.assign("/");
+
+      }
+    }
+
+  }
+  
+});
 
 
-
+popupLogin.addEventListener("click", (e) => {
+  popupLoginClicked = true;
+  divDim.style.visibility = "hidden";
+  window.location.assign("/signin");
+});
 
 

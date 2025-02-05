@@ -1,19 +1,6 @@
 var testAPIBaseURL = "https://testgen.net";
 const apiGenBaseURL = apiBaseURL;
 
-// Legend
-// ------------------
-// 1 - Check API Created
-// 2 - Check API Built
-// 3 - Build TestAPI
-// 4 - Start TestAPI
-// 5 - Stop TestAPI
-// 6 - Check API Running
-// 7 - Delete Test API
-// 8 - Get TestAPI Name
-// 9 - Check Zip File Exists
-// 10 - Archive Zip File
-// h - help menu
 
 function checkAPICreated(){
   testAPI("1").then(
@@ -111,6 +98,7 @@ function startAPI(){
       console.log(error);
     });
 }
+
 
 async function testAPI(cmd) {
   var jsonString;

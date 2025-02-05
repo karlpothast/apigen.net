@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html manifest="manifest.appcache">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APIgen | Sign In </title>
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    <link rel="stylesheet" href="/css/index.css"/> 
+    <link rel="stylesheet" href="/css/styles.css"/>
+    <link rel="stylesheet" href="/css/github.css"/>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+</head>
+<body>
+
+  <div id="divDim" class="divDim divDimOn">
+  </div>
+<div class="sky"></div>
+<!-- <div class="moon"></div>
+<div class="asteroid"></div> -->
+
+  <div class="sign-in">
+
+
+
+  
+
+          <table>
+            <tr>
+              <td width="42%" align="right">
+                <div id="signInLogo">
+                  <div id="divHome" class="glow-container">
+                    <div id="divGlow" class="divGlow"></div>
+                    <img src="/assets/images/lightning0.png" class="lightning0" id="lightning0">
+                    <img src="/assets/images/lightning1.png" class="lightning1" id="lightning1">
+                    <img src="/assets/images/lightning2.png" class="lightning2" id="lightning2">
+                  </div>
+                  <img class="imgLogoMenu" id="imgLogoMenu" src="/assets/images/apigendark.png"/>
+                </div>
+              </td>
+              <td align="left">
+                <span id="titleText" class="titleText">APIGen</span>
+              </td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <table>
+                  <tr>
+                    <td width="29%" align="right"> <img src="/assets/images/dotnet.png" class="netLogo"/></td>
+                    <td align="left">
+                      <span class="headerText">.NET API Generator</span>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <button id="btnGithubSignIn" class="ghbtn flashlarge">
+                  <img id="imgGithubSvg" src="/assets/images/github.svg" class="ghsvg">
+                  <span id="spanSignIn" class="github-span">Sign in with GitHub</span>
+                </button>
+                <br>
+                <button id="btnGithubLogOut" class="ghbtn flashlarge display-none">
+                  <img src="/assets/images/githubLoggedIn.svg" class="ghsvg">
+                  <span id="spanLogOut" class="github-span-logout">Logout</span>
+                </button>
+              </td>
+            </tr>
+          </table>
+       
+     
+
+     
+
+     
+  </div>
+
+  <script src="/js/config.js"></script>
+  <script src="/js/shared.js"></script>
+  <script src="/js/signin.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+
+</html>
