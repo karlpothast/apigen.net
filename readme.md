@@ -12,6 +12,8 @@ Generate a domain driven .NET Web API for an entire database given only a SQL co
 
 ## 2. Enter the SQL Connection String and Execute APIGen
 
+Creates, builds and runs a new .NET API project.
+
 ![image](https://github.com/karlpothast/apigen.net/assets/13120778/af5bbee7-3f64-4553-801d-ce4886676af7)
 
 ## 3. Test/Download your API
