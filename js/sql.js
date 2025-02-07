@@ -4,7 +4,7 @@ const sqlAPIBaseURL = apiBaseURL;
 const username = "sa";
 const password = "n3wsdminDockr2022";
 const exampleDBList = "NORTHWIND;TODOLIST;";
-const builtInDBList = "MODEL;TEMPDB;MSDB;"; //MASTER
+const builtInDBList = "MASTER;MODEL;TEMPDB;MSDB;"; //MASTER
 const noDropDBList = builtInDBList + exampleDBList;
 const sqlConnString =
   "Server=sqlserver;Database=***dbplaceholder***;User Id=sa;Password=n3wsdminDockr2022;TrustServerCertificate=True";
@@ -32,32 +32,38 @@ function getOffset(el) {
   return { top: _y, left: _x };
 }
 const initSql = async () => {
-  try {
-    const dividerV = document.getElementById("dividerV");
-    const dividerVAdjustedCoords = getOffset(dividerV);
-    verticalDividerY = dividerVAdjustedCoords.top;
-    tabContent = document.getElementsByClassName("tabContent");
-    tab = document.getElementsByClassName("tab");
-    hideTabsContent(1);
 
-    var SQLServerDomainURL = apiBaseURL;
-    var SQLServerAvailable;
-
-    checkSQLServer(SQLServerDomainURL).then(
-      function (value) {
-        SQLServerAvailable = value;
-        if (SQLServerAvailable == true) {
-          getServerInfo();
-          getDBList();
-        } else {
-          popupMessageError("SQL Server API Unavailable");
-        }
-      },
-      function (error) {}
-    );
-  } catch (error) {
-    console.log("init error : " + error);
+  if (loggedIn) {
+    try {
+      const dividerV = document.getElementById("dividerV");
+      const dividerVAdjustedCoords = getOffset(dividerV);
+      verticalDividerY = dividerVAdjustedCoords.top;
+      tabContent = document.getElementsByClassName("tabContent");
+      tab = document.getElementsByClassName("tab");
+      hideTabsContent(1);
+  
+      var SQLServerDomainURL = apiBaseURL;
+      var SQLServerAvailable;
+  
+      checkSQLServer(SQLServerDomainURL).then(
+        function (value) {
+          SQLServerAvailable = value;
+          if (SQLServerAvailable == true) {
+            getServerInfo();
+            getUserDb();
+            getDBList();
+          } else {
+            popupMessageError("SQL Server API Unavailable");
+          }
+        },
+        function (error) {}
+      );
+    } catch (error) {
+      console.log("init error : " + error);
+    }
   }
+
+
 };
 
 async function checkSQLServer(SQLServerDomainURL) {
@@ -258,6 +264,21 @@ function getServerInfo() {
       return;
     }
   );
+}
+
+async function getUserDb() {
+
+  //check user db already exists
+  //user Db name : app acroynym + githubId + login  // + serverid?
+
+  //check if username ever changes
+  //alphanumeric characters and dashes ( - )
+  let appAcronym = "ag";
+  let userDbName = appAcronym + user.id.trim() + user.login.trim();
+
+  console.log('check for db : ' + userDbName);
+
+  
 }
 
 async function getDBList() {
