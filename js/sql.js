@@ -37,6 +37,8 @@ function getOffset(el) {
 }
 const initSql = async () => {
 
+  console.log("check login sql");
+  console.log(loggedIn);
   if (loggedIn) {
     try {
       const dividerV = document.getElementById("dividerV");
