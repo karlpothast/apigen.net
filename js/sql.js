@@ -318,7 +318,6 @@ async function getDBList() {
       for (let i = 0; i < sqlResults.length; i++) {
         let sqlDBs = sqlResults[i];
         var sqlDBNameHTML = "";
-
         sqlDBNameHTML = sqlDBs.name;
 
         if (!noDropDBList.includes(sqlDBs.name.toUpperCase() + ";")) {
@@ -333,6 +332,11 @@ async function getDBList() {
           selectDatabasePopupDrop.add(new Option(sqlDBs.name));
           selectDatabasePopup.add(new Option(sqlDBs.name));
           selectDatabasePopupDropDB.add(new Option(sqlDBs.name));
+          console.log("user db found in existing db list");
+        }
+        else
+        {
+          console.log("user db not found in existing db list");
         }
 
         if (!builtInDBList.includes(sqlDBs.name.toUpperCase() + ";")) {
@@ -356,7 +360,12 @@ async function getDBList() {
 
       if (!userDbFound) {
         //create user db
+        console.log("user db not found - create");
         createDbNoUi(userDbList);
+      }
+      else
+      {
+
       }
     },
     function (error) {}
