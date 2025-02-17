@@ -20,7 +20,7 @@ const divSubMenuItem3 = document.getElementById("divSubMenuItem3");
 const divSubMenuItem4 = document.getElementById("divSubMenuItem4");
 const btnMenu = document.getElementById("btnMenu");
 const divMenu = document.getElementById("divMenu");
-let lblMsg = document.getElementById("lblMsg");
+const lblMsg = document.getElementById("lblMsg");
 const txtNewDB = document.getElementById("txtNewDB");
 const divObjects = document.getElementById("divObjects");
 //#endregion
@@ -356,6 +356,7 @@ async function getDBList() {
 
       if (!userDbFound) {
         //create user db
+        createDbNoUi(userDbList);
       }
     },
     function (error) {}
@@ -851,7 +852,6 @@ function createDbNoUi(newDBName) {
 
       htmlString = sqlResults;
       lblMsg.innerText = "Database created successfully";
-      //popupMessage("Database created successfully");
       reload();
     },
     function (error) {}
