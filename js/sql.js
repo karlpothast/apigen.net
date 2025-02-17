@@ -20,7 +20,7 @@ const divSubMenuItem3 = document.getElementById("divSubMenuItem3");
 const divSubMenuItem4 = document.getElementById("divSubMenuItem4");
 const btnMenu = document.getElementById("btnMenu");
 const divMenu = document.getElementById("divMenu");
-const lblMsg = document.getElementById("lblMsg");
+let lblMsg = document.getElementById("lblMsg");
 const txtNewDB = document.getElementById("txtNewDB");
 const divObjects = document.getElementById("divObjects");
 //#endregion
