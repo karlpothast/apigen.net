@@ -293,6 +293,7 @@ function closeModal() {
 function openSQLWindow() {
   console.log("check loggedIn from index");
   console.log(loggedIn);
+  loggedIn = isUserLoggedIn();
   if (loggedIn) {
     //divDim.style.visibility = "hidden";
     setInnerModeOn();
