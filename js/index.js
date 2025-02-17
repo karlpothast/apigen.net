@@ -437,11 +437,11 @@ window.onload = (event) => {
   //log("index.js load event")
   if (loggedIn) {
     divDim.style.visibility = "hidden";
-    console.log('logged in');
+    //console.log('logged in');
   }
   else
   {
-    console.log('not logged in');
+    //console.log('not logged in');
   }
   initIndex();
   checkUrl();
