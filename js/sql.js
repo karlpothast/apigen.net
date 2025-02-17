@@ -863,7 +863,7 @@ function dropDB(dropDBName) {
     popupMessageError("Database name is blank");
     return;
   }
-  const lblMsg = document.getElementById("lblMsg");
+  //const lblMsg = document.getElementById("lblMsg");
   var sqlQuery = "DROP DATABASE " + dropDBName;
 
   getSQLResults(username, password, dbName, sqlQuery).then(
@@ -884,7 +884,7 @@ function dropTable(dbName, tableName) {
     popupMessageError("Table name is blank");
     return;
   }
-  const lblMsg = document.getElementById("lblMsg");
+  //const lblMsg = document.getElementById("lblMsg");
   var sqlQuery = "DROP TABLE " + tableName;
 
   getSQLResults(username, password, dbName, sqlQuery).then(
