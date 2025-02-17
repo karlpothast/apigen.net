@@ -94,6 +94,7 @@
   cursor:pointer;
   font-size:calc(6px + 0.5vw);
   color:cyan;
+  margin-left:0.3vw;
 }
 .ghlogo-large {
  margin-left:1vw;
