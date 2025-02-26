@@ -5,7 +5,6 @@ const username = "sa";
 const password = "n3wsdminDockr2022";
 const exampleDBList = "NORTHWIND;TODOLIST;";
 const builtInDBList = "MASTER;MODEL;TEMPDB;MSDB;"; //MASTER
-let userDbList;
 const noDropDBList = builtInDBList + exampleDBList;
 const sqlConnString =
   "Server=sqlserver;Database=***dbplaceholder***;User Id=sa;Password=n3wsdminDockr2022;TrustServerCertificate=True";
@@ -20,9 +19,6 @@ const divSubMenuItem3 = document.getElementById("divSubMenuItem3");
 const divSubMenuItem4 = document.getElementById("divSubMenuItem4");
 const btnMenu = document.getElementById("btnMenu");
 const divMenu = document.getElementById("divMenu");
-const lblMsg = document.getElementById("lblMsg");
-const txtNewDB = document.getElementById("txtNewDB");
-const divObjects = document.getElementById("divObjects");
 //#endregion
 
 function getOffset(el) {
@@ -37,11 +33,6 @@ function getOffset(el) {
 }
 const initSql = async () => {
 
-  console.log("check login sql");
-  console.log(loggedIn);
-  if (loggedInUser && loggedInUser.length > 0) {
-    loggedIn = true;
-  }
   if (loggedIn) {
     try {
       const dividerV = document.getElementById("dividerV");
@@ -59,7 +50,7 @@ const initSql = async () => {
           SQLServerAvailable = value;
           if (SQLServerAvailable == true) {
             getServerInfo();
-            userDbList = getUserDb();
+            getUserDb();
             getDBList();
           } else {
             popupMessageError("SQL Server API Unavailable");
@@ -285,9 +276,8 @@ async function getUserDb() {
   let appAcronym = "ag";
   let userDbName = appAcronym + user.id.trim() + user.login.trim();
 
-  //console.log('check for db : ' + userDbName);
+  console.log('check for db : ' + userDbName);
 
-  return userDbName;
   
 }
 
@@ -318,30 +308,16 @@ async function getDBList() {
       selectDatabasePopupDrop.add(new Option(selectDefault));
       selectDatabasePopupDropDB.add(new Option(selectDefault));
 
-      let userDbFound = false;
-
       for (let i = 0; i < sqlResults.length; i++) {
         let sqlDBs = sqlResults[i];
         var sqlDBNameHTML = "";
+
         sqlDBNameHTML = sqlDBs.name;
 
         if (!noDropDBList.includes(sqlDBs.name.toUpperCase() + ";")) {
           selectDatabasePopupDrop.add(new Option(sqlDBs.name));
           selectDatabasePopup.add(new Option(sqlDBs.name));
           selectDatabasePopupDropDB.add(new Option(sqlDBs.name));
-        }
-
-        //userDb
-        if (!userDbList.includes(sqlDBs.name.toUpperCase() + ";")) {
-          userDbFound = true;
-          selectDatabasePopupDrop.add(new Option(sqlDBs.name));
-          selectDatabasePopup.add(new Option(sqlDBs.name));
-          selectDatabasePopupDropDB.add(new Option(sqlDBs.name));
-          console.log("user db found in existing db list");
-        }
-        else
-        {
-          console.log("user db not found in existing db list");
         }
 
         if (!builtInDBList.includes(sqlDBs.name.toUpperCase() + ";")) {
@@ -362,16 +338,6 @@ async function getDBList() {
       }
       htmlString += "</table>";
       divObjects.innerHTML = htmlString;
-
-      if (!userDbFound) {
-        //create user db
-        console.log("user db not found - create");
-        createDbNoUi(userDbList);
-      }
-      else
-      {
-
-      }
     },
     function (error) {}
   );
@@ -830,8 +796,11 @@ function createDB(newDBName) {
     popupMessageError("Database name is blank");
     return;
   }
-
+  const lblMsg = document.getElementById("lblMsg");
+  const txtNewDB = document.getElementById("txtNewDB");
   dbName = "master";
+
+  const divObjects = document.getElementById("divObjects");
   var sqlQuery = "CREATE DATABASE " + newDBName;
 
   getSQLResults(username, password, dbName, sqlQuery).then(
@@ -847,37 +816,12 @@ function createDB(newDBName) {
     function (error) {}
   );
 }
-
-function createDbNoUi(newDBName) {
-  if (newDBName == "") {
-    popupMessageError("User database name is blank");
-    return;
-  }
-  //const lblMsg = document.getElementById("lblMsg");
-  //const txtNewDB = document.getElementById("txtNewDB");
-  //dbName = "master";
-
-  var sqlQuery = "CREATE DATABASE " + newDBName;
-
-  getSQLResults(username, password, dbName, sqlQuery).then(
-    function (data) {
-      var sqlResults = data.SQLResponse;
-      var jsonString = JSON.stringify(sqlResults);
-
-      htmlString = sqlResults;
-      lblMsg.innerText = "Database created successfully";
-      reload();
-    },
-    function (error) {}
-  );
-}
-
 function dropDB(dropDBName) {
   if (dropDBName == "") {
     popupMessageError("Database name is blank");
     return;
   }
-  //const lblMsg = document.getElementById("lblMsg");
+  const lblMsg = document.getElementById("lblMsg");
   var sqlQuery = "DROP DATABASE " + dropDBName;
 
   getSQLResults(username, password, dbName, sqlQuery).then(
@@ -898,7 +842,7 @@ function dropTable(dbName, tableName) {
     popupMessageError("Table name is blank");
     return;
   }
-  //const lblMsg = document.getElementById("lblMsg");
+  const lblMsg = document.getElementById("lblMsg");
   var sqlQuery = "DROP TABLE " + tableName;
 
   getSQLResults(username, password, dbName, sqlQuery).then(
