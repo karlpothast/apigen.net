@@ -291,8 +291,8 @@ function closeModal() {
 
 //#region methods
 function openSQLWindow() {
-  console.log("check loggedIn from index");
-  console.log(loggedIn);
+  //console.log("check loggedIn from index");
+  //console.log(loggedIn);
   if (loggedIn) {
     //divDim.style.visibility = "hidden";
     setInnerModeOn();

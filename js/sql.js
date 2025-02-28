@@ -4,7 +4,7 @@ const sqlAPIBaseURL = apiBaseURL;
 const username = "sa";
 const password = "n3wsdminDockr2022";
 const exampleDBList = "NORTHWIND;TODOLIST;";
-const builtInDBList = "MASTER;MODEL;TEMPDB;MSDB;"; //MASTER
+const builtInDBList = "MODEL;TEMPDB;MSDB;"; //MASTER
 const noDropDBList = builtInDBList + exampleDBList;
 const sqlConnString =
   "Server=sqlserver;Database=***dbplaceholder***;User Id=sa;Password=n3wsdminDockr2022;TrustServerCertificate=True";
@@ -33,7 +33,13 @@ function getOffset(el) {
 }
 const initSql = async () => {
 
+  //console.log('loggedIn:' + loggedIn);
+  loggedInUser = getCookie("loggedInUser_"+env);
+  //console.log('loggedInUser from sql.js : ' +  loggedInUser);
+
   if (loggedIn) {
+
+    userObj = getAuthObj();
     try {
       const dividerV = document.getElementById("dividerV");
       const dividerVAdjustedCoords = getOffset(dividerV);
@@ -50,7 +56,7 @@ const initSql = async () => {
           SQLServerAvailable = value;
           if (SQLServerAvailable == true) {
             getServerInfo();
-            getUserDb();
+            getUserDb(userObj);
             getDBList();
           } else {
             popupMessageError("SQL Server API Unavailable");
@@ -266,7 +272,7 @@ function getServerInfo() {
   );
 }
 
-async function getUserDb() {
+async function getUserDb(userObj) {
 
   //check user db already exists
   //user Db name : app acroynym + githubId + login  // + serverid?
@@ -274,11 +280,10 @@ async function getUserDb() {
   //check if username ever changes
   //alphanumeric characters and dashes ( - )
   let appAcronym = "ag";
-  let userDbName = appAcronym + user.id.trim() + user.login.trim();
+  //let userDbName = appAcronym + userObj.ghid.trim() + userObj.login.trim();
+  let userDbName = userObj.login.trim();
+  console.log('create db : ' + userDbName);
 
-  console.log('check for db : ' + userDbName);
-
-  
 }
 
 async function getDBList() {
@@ -291,8 +296,6 @@ async function getDBList() {
       var sqlResults = data.SQLResponse;
 
       var htmlString = "<table>";
-      //var htmlTableRow = "<tr style=\"background-color:#FFF29D\"><td><span>SQL Objects</span><td></tr>";
-      //htmlString += htmlTableRow;
       var selectDatabase = document.getElementById("selectDatabase");
       var selectDatabasePopup = document.getElementById("selectDatabasePopup");
       var selectDatabasePopuDrop = document.getElementById(
@@ -314,13 +317,13 @@ async function getDBList() {
 
         sqlDBNameHTML = sqlDBs.name;
 
-        if (!noDropDBList.includes(sqlDBs.name.toUpperCase() + ";")) {
+        if (noDropDBList.includes(sqlDBs.name.toUpperCase() + ";")) {
           selectDatabasePopupDrop.add(new Option(sqlDBs.name));
           selectDatabasePopup.add(new Option(sqlDBs.name));
           selectDatabasePopupDropDB.add(new Option(sqlDBs.name));
         }
 
-        if (!builtInDBList.includes(sqlDBs.name.toUpperCase() + ";")) {
+        if (builtInDBList.includes(sqlDBs.name.toUpperCase() + ";")) {
           selectDatabase.add(new Option(sqlDBs.name));
 
           htmlString +=
