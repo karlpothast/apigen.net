@@ -16,3 +16,8 @@
 ## 3. Test/Download your API
 
 ![image](https://github.com/karlpothast/apigen.net/assets/13120778/04f70a52-7c2a-4463-85a3-ae2aee6389ab)
+
+
+[Design Document](https://drive.google.com/file/d/193NzTL_zQZkKLRghxkMCNmNwFft4DnCI/view "APIGen.net")
+
+
