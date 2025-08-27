@@ -8,7 +8,6 @@
 
 ![image](https://github.com/karlpothast/apigen.net/assets/13120778/bd139193-04e8-474d-83c9-a473e6281ff0)
 
-#sql-readme
 ## 2. Enter the SQL Connection String and Execute APIGen
 
 ![image](https://github.com/karlpothast/apigen.net/assets/13120778/af5bbee7-3f64-4553-801d-ce4886676af7)
@@ -19,5 +18,6 @@
 
 
 [Design Document](https://drive.google.com/file/d/193NzTL_zQZkKLRghxkMCNmNwFft4DnCI/view "APIGen.net")
+
 
 
